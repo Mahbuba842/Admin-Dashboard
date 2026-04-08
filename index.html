@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="login-page" id="loginPage">
+  <div class="login-box">
+    <h2>Admin Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p class="error" id="loginError"></p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+
+  <div class="sidebar" id="sidebar">
+    <span class="close-btn" onclick="toggleSidebar()">✕</span>
+    <h2>Admin Panel</h2>
+    <ul>
+      <li>Dashboard</li>
+      <li>Users</li>
+      <li onclick="logout()">Logout</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <button onclick="toggleSidebar()">☰</button>
+      <h3>Admin Dashboard</h3>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h4>Total Users</h4>
+        <p id="totalUsers">0</p>
+      </div>
+      <div class="card">
+        <h4>Active Users</h4>
+        <p id="activeUsers">0</p>
+      </div>
+    </div>
+
+    <!-- Add/Edit User -->
+    <div class="form-box">
+      <h3>Add / Edit User</h3>
+      <input type="hidden" id="editId">
+      <input type="text" id="name" placeholder="Name">
+      <input type="email" id="email" placeholder="Email">
+      <button onclick="saveUser()">Save</button>
+      <p class="error" id="formError"></p>
+    </div>
+
+    <!-- Search -->
+    <input type="text" id="search" placeholder="Search..." onkeyup="searchUser()">
+
+    <!-- Table -->
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
